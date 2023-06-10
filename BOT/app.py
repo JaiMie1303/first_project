@@ -22,13 +22,13 @@ def values(message: telebot.types.Message):
 @bot.message_handler(commands=['convert'])
 def values(message: telebot.types.Message):
     text = 'Выберите валюту, из которой нужно конвертировать: '
-    bot.send_message(message.chat.id, text, reply_markup=create_markup())
+    bot.send_message(message.chat.id, text, )
     bot.register_next_step_handler(message, base_handler)
 
 def base_handler(message: telebot.types.Message):
     base = message.text.strip().lower()
     text = 'Выберите валюту, в которую нужно конвертировать: '
-    bot.send_message(message.chat.id, text, reply_markup=create_markup(base))
+    bot.send_message(message.chat.id, text, )
     bot.register_next_step_handler(message, quote_handler, base)
 
 def quote_handler(message: telebot.types.Message, base):
@@ -61,8 +61,7 @@ def converter(message: telebot.types.Message):
     except ConvertionException as e:
         bot.reply_to(message, f'Ошибка пользователя.\n{e}')
     except Exception as e:
-        traceback.print_tb(e.__traceback__)
-        bot.reply_to(message, f'Не удалось обработать команду\n{e}')
+       bot.reply_to(message, f'Не удалось обработать команду\n{e}')
     else:
             bot.reply_to(message, answer)
 
