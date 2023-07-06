@@ -1,6 +1,6 @@
 python manage.py shell
 
-from news.models import User, Author, Category, Post, Comment
+from news.models import *
 
 
 1) Создать двух пользователей (с помощью метода User.objects.create_user('username'))
