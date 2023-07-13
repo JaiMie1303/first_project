@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+<h1> Название: {{ new.name|censor }}</h1>
+<h1>Текст: {{ new.description|censor}} </h1>
+<h1>Опубликовано: {{new.time_pub|date:'d M Y'}} </h1>
+{% endblock content %}
