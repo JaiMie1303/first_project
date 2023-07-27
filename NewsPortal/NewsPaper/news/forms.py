@@ -1,9 +1,5 @@
 from django import forms
-from django.forms import ChoiceField
-
 from .models import Post
-from django_filters import ModelChoiceFilter
-from .models import Category
 
 
 class CreateForm(forms.ModelForm):
