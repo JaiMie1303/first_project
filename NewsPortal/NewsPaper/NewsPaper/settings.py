@@ -164,7 +164,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = "Tear-drop1303@yandex.ru"
-EMAIL_HOST_PASSWORD = "iclfgepemmiuofhz"
+EMAIL_HOST_PASSWORD = "iclfgepenniuofcv"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
@@ -176,8 +176,8 @@ ADMINS = (
     ('jaimie', 'evgeniyasmirnova89@yahoo.com'),
 )
 
-CELERY_BROKER_URL = 'redis://default:Ge0VxgnL7bvWnv7HjmOHY4xEjeZNKqNP@redis-14736.c228.us-central1-1.gce.cloud.redislabs.com:14736'
-CELERY_RESULT_BACKEND = 'redis://default:Ge0VxgnL7bvWnv7HjmOHY4xEjeZNKqNP@redis-14736.c228.us-central1-1.gce.cloud.redislabs.com:14736'
+CELERY_BROKER_URL = 'redis://default:Ge0VxhjL7bvWty7HjmOHY4xEjeZNKqNP@redis-14736.c228.us-central1-1.gce.cloud.redislabs.com:14737'
+CELERY_RESULT_BACKEND = 'redis://default:Ge0VxgnL7bvTVH7HjmOHY4xEjeZNKqNP@redis-14736.c228.us-central1-1.gce.cloud.redislabs.com:14737'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
