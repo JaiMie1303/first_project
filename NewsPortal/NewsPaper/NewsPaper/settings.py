@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0xz^fo+t%vboj91neke!=ivxunpx&-=)^x8de5*diqc6ea(1!e'
+SECRET_KEY = 'django-insecure-0xz^fo+t%vboj91neke!=ivxunpx&-=)^x8de5*hjqc6ea(1!e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -165,7 +165,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = "Tear-drop1303@yandex.ru"
-EMAIL_HOST_PASSWORD = "iclfgepemmiuofhz"
+EMAIL_HOST_PASSWORD = "iclfgepjhgmiuofhz"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
@@ -177,8 +177,8 @@ ADMINS = (
     ('jaimie', 'evgeniyasmirnova89@yahoo.com'),
 )
 
-CELERY_BROKER_URL = 'redis://default:Ge0VxgnL7bvWnv7HjmOHY4xEjeZNKqNP@redis-14736.c228.us-central1-1.gce.cloud.redislabs.com:14736'
-CELERY_RESULT_BACKEND = 'redis://default:Ge0VxgnL7bvWnv7HjmOHY4xEjeZNKqNP@redis-14736.c228.us-central1-1.gce.cloud.redislabs.com:14736'
+CELERY_BROKER_URL = 'redis://default:Ge0VxgnL7bvWnv7HjmOIU4xEjeZNKqNP@redis-14736.c228.us-central1-1.gce.cloud.redislabs.com:14736'
+CELERY_RESULT_BACKEND = 'redis://default:Ge0VxgnL7bvWnv7HjmOHY4xbHyeZNKqNP@redis-14736.c228.us-central1-1.gce.cloud.redislabs.com:14736'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
