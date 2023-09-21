@@ -1,8 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission
 from django.db.models import Sum
 
-# Create your models here.
 from django.urls import reverse
 
 
@@ -10,10 +9,17 @@ class PostCategory(models.Model):
     posts = models.ForeignKey('Post', on_delete=models.CASCADE)
     categories = models.ForeignKey('Category', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.categories} ---> {self.posts}'
+
 
 class Author(models.Model):
     author = models.OneToOneField(User, on_delete=models.CASCADE)
     author_rating = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = 'Автор'
+        verbose_name_plural = 'Авторы'
 
     def update_rating(self):
         c_rate = 0
@@ -32,6 +38,12 @@ class Author(models.Model):
 
 class Category(models.Model):
     category = models.CharField(max_length=32, unique=True)
+    subscribers = models.ManyToManyField(User, verbose_name='Подписчики',
+                                         related_name='cats')
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
     def __str__(self):
         return f'{self.category}'
@@ -43,13 +55,20 @@ class Post(models.Model):
         ('article', 'Статья')
     ]
 
-    post_type = models.CharField(max_length=8, choices=posts, default='news', verbose_name='Тип поста')
-    author_name = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='writer', verbose_name='Автор')
-    title = models.CharField(max_length=128)
+    post_type = models.CharField(max_length=8, choices=posts, default='news',
+                                 verbose_name='Тип поста')
+    author_name = models.ForeignKey(Author, on_delete=models.CASCADE,
+                                    related_name='writer', verbose_name='Автор')
+    title = models.CharField(max_length=128, verbose_name='Заголовок')
     post_content = models.TextField(verbose_name='Содержимое')
     post_creation_date = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default=0)
-    post_category = models.ManyToManyField(Category, through='PostCategory', verbose_name='Категория')
+    post_category = models.ManyToManyField(Category, through='PostCategory',
+                                           verbose_name='Категория')
+
+    class Meta:
+        verbose_name = 'Статья'
+        verbose_name_plural = 'Статьи'
 
     def like(self):
         self.rating += 1
@@ -75,6 +94,10 @@ class Comment(models.Model):
     comment_content = models.TextField()
     comment_creation_date = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
 
     def like(self):
         self.rating += 1

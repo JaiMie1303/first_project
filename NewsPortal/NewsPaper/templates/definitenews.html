@@ -1,8 +1,11 @@
 {% extends 'flatpages/default.html' %}
 {% load custom_filters %}
+{% load cache %}
 
 {% block title %} news... {% endblock title %}
-{% block navbar %}<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+{% block test %}{% endblock test %}
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/news/">Home</a>
                 {% if not user.username %}

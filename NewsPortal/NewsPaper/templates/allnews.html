@@ -1,7 +1,11 @@
 {% extends 'flatpages/default.html' %}
 {% load custom_filters %}
+{% load custom_tags %}
+{% load cache %}
 
 {% block title %}All news!{% endblock title %}
+{% block test %}{% endblock test %}
+{% cache 60 all_news %}
 {% block content %}
 <h1> Главные новости! </h1>
 <hr>

@@ -1,7 +1,9 @@
 <{% extends 'flatpages/default.html' %}
 {% load custom_filters %}
+{% load custom_tags %}
 
 {% block title %}Categories{% endblock title %}
+{% block test %}{% endblock test %}
 {% block content %}
 <h3> Категория: {{cat}}</h3>
 {% if not is_subscriber and user.username %}

@@ -58,7 +58,7 @@ class CreateNews(PermissionRequiredMixin, CreateView):
     permission_required = ('news.add_post',)
     raise_exception = True
 
-    # success_url = reverse_lazy('news-created')
+    success_url = reverse_lazy('news-created')
 
     def form_valid(self, form):
         time_now = datetime.now()
